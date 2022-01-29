@@ -1,4 +1,4 @@
-module github.com/joshinjohnson/authentication-service
+module github.com/joshinjohnson/authentication-engine
 
 go 1.16
 
