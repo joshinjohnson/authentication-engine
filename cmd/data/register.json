@@ -1,0 +1,12 @@
+{
+  "user_credentials": {
+    "email": "email@website.com",
+    "username": "username",
+    "password": "password"
+  },
+  "user_details": {
+    "first_name": "firstname",
+    "last_name": "lastname",
+    "date_of_birth": "Jan 2, 1999"
+  }
+}
