@@ -1,11 +1,11 @@
 package api
 
 import (
-	"github.com/joshinjohnson/authentication-service/internal/access"
-	"github.com/joshinjohnson/authentication-service/internal/emulation"
-	"github.com/joshinjohnson/authentication-service/internal/operation"
-	customErrors "github.com/joshinjohnson/authentication-service/pkg/errors"
-	"github.com/joshinjohnson/authentication-service/pkg/models"
+	"github.com/joshinjohnson/authentication-engine/internal/access"
+	"github.com/joshinjohnson/authentication-engine/internal/emulation"
+	"github.com/joshinjohnson/authentication-engine/internal/operation"
+	customErrors "github.com/joshinjohnson/authentication-engine/pkg/errors"
+	"github.com/joshinjohnson/authentication-engine/pkg/models"
 )
 
 type AuthenticationEngine interface {

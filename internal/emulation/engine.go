@@ -1,7 +1,7 @@
 package emulation
 
 import (
-	"github.com/joshinjohnson/authentication-service/pkg/models"
+	"github.com/joshinjohnson/authentication-engine/pkg/models"
 )
 
 type Engine struct {

@@ -1,8 +1,8 @@
 package operation
 
 import (
-	"github.com/joshinjohnson/authentication-service/internal/access"
-	"github.com/joshinjohnson/authentication-service/pkg/models"
+	"github.com/joshinjohnson/authentication-engine/internal/access"
+	"github.com/joshinjohnson/authentication-engine/pkg/models"
 	"reflect"
 	"testing"
 )
@@ -14,33 +14,33 @@ func TestEngine_Authenticate(t *testing.T) {
 		Email:    "email@website.com",
 		Password: "pass",
 	}, models.UserDetails{
-		FirstName:   "firstname",
-		LastName:    "lastname",
+		FirstName: "firstname",
+		LastName:  "lastname",
 	})
 	type args struct {
 		userCredential models.UserCredential
 	}
 	tests := []struct {
 		name    string
-		access *access.AuthenticationAccess
+		access  *access.AuthenticationAccess
 		args    args
 		want    models.UserDetails
 		wantErr bool
 	}{
 		{
 			name:    "negative",
-			access: nil,
+			access:  nil,
 			args:    args{},
 			want:    models.UserDetails{},
 			wantErr: true,
 		},
 		{
-			name:    "positive",
-			access:  accessWithData,
-			args:    args{},
-			want:    models.UserDetails{
-				FirstName:   "firstname",
-				LastName:    "lastname",
+			name:   "positive",
+			access: accessWithData,
+			args:   args{},
+			want: models.UserDetails{
+				FirstName: "firstname",
+				LastName:  "lastname",
 			},
 			wantErr: false,
 		},
@@ -67,8 +67,8 @@ func TestEngine_Authenticate(t *testing.T) {
 
 func TestEngine_Register(t *testing.T) {
 	userDetails := models.UserDetails{
-		FirstName:   "firstname",
-		LastName:    "lastname",
+		FirstName: "firstname",
+		LastName:  "lastname",
 	}
 	type fields struct {
 		access *access.AuthenticationAccess
@@ -78,10 +78,10 @@ func TestEngine_Register(t *testing.T) {
 		userDetails    models.UserDetails
 	}
 	tests := []struct {
-		name    string
-		fields  fields
-		args    args
-		wantErr bool
+		name        string
+		fields      fields
+		args        args
+		wantErr     bool
 		userDetails models.UserDetails
 	}{
 		{
@@ -91,17 +91,17 @@ func TestEngine_Register(t *testing.T) {
 			wantErr: true,
 		},
 		{
-			name:        "positive",
-			fields:      fields{
+			name: "positive",
+			fields: fields{
 				access: access.NewAuthenticationAccess(),
 			},
-			args:        args{
+			args: args{
 				userCredential: models.UserCredential{
 					Username: "username",
 					Email:    "",
 					Password: "123asd",
 				},
-				userDetails:    userDetails,
+				userDetails: userDetails,
 			},
 			wantErr:     false,
 			userDetails: userDetails,

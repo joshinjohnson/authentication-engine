@@ -3,9 +3,9 @@ package operation
 import (
 	"crypto/md5"
 	"encoding/hex"
-	"github.com/joshinjohnson/authentication-service/internal/access"
-	customErrors "github.com/joshinjohnson/authentication-service/pkg/errors"
-	"github.com/joshinjohnson/authentication-service/pkg/models"
+	"github.com/joshinjohnson/authentication-engine/internal/access"
+	customErrors "github.com/joshinjohnson/authentication-engine/pkg/errors"
+	"github.com/joshinjohnson/authentication-engine/pkg/models"
 )
 
 type Engine struct {

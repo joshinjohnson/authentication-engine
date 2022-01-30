@@ -3,9 +3,9 @@ package cli
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/joshinjohnson/authentication-service/internal/access"
-	"github.com/joshinjohnson/authentication-service/pkg/api"
-	"github.com/joshinjohnson/authentication-service/pkg/models"
+	"github.com/joshinjohnson/authentication-engine/internal/access"
+	"github.com/joshinjohnson/authentication-engine/pkg/api"
+	"github.com/joshinjohnson/authentication-engine/pkg/models"
 	"github.com/spf13/cobra"
 	"io/ioutil"
 	"os"
@@ -13,15 +13,15 @@ import (
 )
 
 var (
-	mode models.Mode
-	modeStr    string
-	typeStr 	string
+	mode          models.Mode
+	modeStr       string
+	typeStr       string
 	inputFilePath string
-	cred models.UserCredential
-	regDetails registrationDetails
-	authAccess *access.AuthenticationAccess
+	cred          models.UserCredential
+	regDetails    registrationDetails
+	authAccess    *access.AuthenticationAccess
 
-	rootCmd    = &cobra.Command{
+	rootCmd = &cobra.Command{
 		Use:     "authentication-engine",
 		Version: "0.0.1",
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
@@ -95,6 +95,6 @@ func getMode(str string) models.Mode {
 }
 
 type registrationDetails struct {
-	creds models.UserCredential `json:"user-credentials"`
-	details models.UserDetails `json:"user-details"`
+	creds   models.UserCredential `json:"user-credentials"`
+	details models.UserDetails    `json:"user-details"`
 }

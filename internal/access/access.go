@@ -1,8 +1,8 @@
 package access
 
 import (
-	customErrors "github.com/joshinjohnson/authentication-service/pkg/errors"
-	"github.com/joshinjohnson/authentication-service/pkg/models"
+	customErrors "github.com/joshinjohnson/authentication-engine/pkg/errors"
+	"github.com/joshinjohnson/authentication-engine/pkg/models"
 	"time"
 )
 
@@ -15,8 +15,8 @@ var (
 // AuthenticationAccess is the access layer which hides internal data source.
 // local data store is used here and fields represent tables in a database
 type AuthenticationAccess struct {
-	credentials []credential
-	users []user
+	credentials            []credential
+	users                  []user
 	credentialToUserLookup []credentialToUserLookup
 }
 
@@ -26,8 +26,8 @@ func NewAuthenticationAccess() *AuthenticationAccess {
 		return access
 	}
 	return &AuthenticationAccess{
-		credentials: make([]credential, 0, tableSize),
-		users:       make([]user, 0, tableSize),
+		credentials:            make([]credential, 0, tableSize),
+		users:                  make([]user, 0, tableSize),
 		credentialToUserLookup: make([]credentialToUserLookup, 0, tableSize),
 	}
 }
@@ -47,10 +47,10 @@ func (a *AuthenticationAccess) StoreUser(c models.UserCredential, d models.UserD
 		createdTime:     time.Now(),
 	})
 	a.users = append(a.users, user{
-		userID:      userID,
-		firstName:   d.FirstName,
-		lastName:    d.LastName,
-		dateOfBirth: d.DateOfBirth,
+		userID:          userID,
+		firstName:       d.FirstName,
+		lastName:        d.LastName,
+		dateOfBirth:     d.DateOfBirth,
 		lastUpdatedTime: time.Now(),
 		createdTime:     time.Now(),
 	})
